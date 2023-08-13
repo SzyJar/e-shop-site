@@ -1,4 +1,4 @@
-# space-battle-game
+# e-shop
 
 ## Project setup
 ```
