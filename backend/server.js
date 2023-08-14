@@ -10,7 +10,6 @@ const apiRoutes = require('./routes/api.js');
 
 
 const PORT = process.env.PORT || 5000;
-const SECRET_KEY = process.env.SECURITY_KEY;
 
 const app = express();
 
