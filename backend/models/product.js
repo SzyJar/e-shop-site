@@ -8,7 +8,7 @@ const productSchema = new Schema({
         requierd: true,
         unique: true,
     },
-    cover: {
+    image: {
         type: String,
     },
     description: {
@@ -17,7 +17,7 @@ const productSchema = new Schema({
     releaseDate: {
         type: Date,
     },
-    developer: {
+    company: {
         type: String,
     },
     price: {
