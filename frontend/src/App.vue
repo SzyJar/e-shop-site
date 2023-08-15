@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/product">Products</router-link>
+      <router-link to="/manage">Manage</router-link>
     </div>
     <div class="login-link">
       <router-link to="/login">Login</router-link>
@@ -33,6 +34,11 @@ body {
   min-width: 700px;
   margin: 0;
   margin-top: 100px;
+}
+
+h1 {
+  font-family: 'Didot', serif;
+  margin: 30px;
 }
 
 .nav-bar {

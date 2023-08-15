@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <p>This is demo project of online shop.</p>
+    <h1>This is demo project of online shop.</h1>
     <div class="slideshow">
       <Carousel v-slot="{ currentSlide }">
         <Slide v-for="(slide, index) in slides" :key="index">

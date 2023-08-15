@@ -61,10 +61,6 @@ export default ({
 </script>
 
 <style scoped>
-h1 {
-  font-family: 'Didot', serif;
-  margin: 30px;
-}
 .about {
   display: flex;
   flex-direction: column;
