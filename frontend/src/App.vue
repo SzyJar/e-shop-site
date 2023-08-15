@@ -13,6 +13,10 @@
 </template>
 
 <style>
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -28,15 +32,19 @@ body {
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
   min-width: 700px;
   margin: 0;
+  margin-top: 100px;
 }
 
 .nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
-  background-color: transparent;
-  margin-top: 20px;
+  padding: 20px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
+  width: 100%;
 }
 
 .nav-links {

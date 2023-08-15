@@ -40,12 +40,10 @@ export default {
   margin-top: 50px;
 }
 .slideshow {
-  display: inline-flex;
   overflow: hidden;
   background: white;
-  width: 950px;
+  width: 100%;
   height: 500px;
-  border-radius: 20px;
   
   .slide-info {
   top: 0;
