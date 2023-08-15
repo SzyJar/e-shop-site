@@ -31,7 +31,7 @@ module.exports = function (app) {
 
             const user = await User.findOne({ name: name });
             if (!user) {
-                return res.status(401).json({ message: 'Invalid credentials' });
+                return res.status(404).json({ message: 'User does not exist' });
             };
     
             const isPasswordValid = await bcrypt.compare(password, user.password);
@@ -40,9 +40,9 @@ module.exports = function (app) {
             };
     
             const accessToken = jwt.sign({ id: user._id }, process.env.SECURITY_KEY, { expiresIn : 86400 });
-            const refreshToken = jwt.sign({ id: user._id }, process.env.REFRESH_SECURITY_KEY, { expiresIn : 525600 });
+            //const refreshToken = jwt.sign({ id: user._id }, process.env.REFRESH_SECURITY_KEY, { expiresIn : 525600 });
     
-            return res.status(200).json({ accessToken, refreshToken });
+            return res.status(200).json({ accessToken });
         } catch(err) {
             console.error('Error occurred in POST request to /login', err.message);
             res.status(500).json({ error: 'An error occurred while logging in' });
@@ -67,9 +67,9 @@ module.exports = function (app) {
             await newUser.save();
     
             const accessToken = jwt.sign({ _id: newUser._id }, process.env.SECURITY_KEY, { expiresIn : 86400 });
-            const refreshToken = jwt.sign({ _id: newUser._id }, process.env.REFRESH_SECURITY_KEY, { expiresIn : 525600 });
+            //const refreshToken = jwt.sign({ _id: newUser._id }, process.env.REFRESH_SECURITY_KEY, { expiresIn : 525600 });
     
-            return res.status(200).json({ accessToken, refreshToken });
+            return res.status(200).json({ accessToken });
         } catch(err) {
             console.error('Error occurred in POST request to /signup', err.message);
             res.status(500).json({ error: 'An error occurred while signing up' });
