@@ -3,16 +3,55 @@
     <h1>Online shop with over a hundred years of history</h1>
     <div class="text">
       <Text />
-    </div>    
+    </div>
+    <h1>What our customers say</h1>
+    <div v-for="(review, index) in reviews" :key="index"
+    :class="['review', { 'review-even': index % 2 === 0, 'review-odd': index % 2 === 1 }]">
+      <Review :img="require(`../../assets/about/${review.img}.png`)"
+              :text="review.text"
+              :rating="review.rating" />
+    </div>
   </div>
 </template>
 <script>
 import Text from './Text'
 import Review from '../../components/Review'
+
+
 export default ({
   components: { Text, Review },
   setup() {
-
+    const reviews = [
+      {
+        img: 'profile1',
+        text: 'Great shop!',
+        rating: 4
+      },
+      {
+        img: 'profile1',
+        text: 'Wow, I\'m incredibly impressed with the service from this online store!'
+        +' I recently ordered a product, and I must say, the delivery was lightning fast.'
+        +' I placed my order in the morning, and by the afternoon, I had it in my hands.'
+        +' The speed at which they handled my order was beyond my expectations.'
+        +' I\'ve shopped with many online retailers, but this level of efficiency'
+        +' is truly exceptional. Kudos to the team for their dedication to fast and reliable delivery.'
+        +' I\'m definitely going to be a returning customer!',
+        rating: 11
+      },
+      {
+        img: 'profile1',
+        text: 'Great shop!',
+        rating: 8
+      },
+      {
+        img: 'profile1',
+        text: 'Great shop!',
+        rating: 6
+      },
+    ]
+    return {
+      reviews,
+    }
   }
 })
 </script>
@@ -20,6 +59,7 @@ export default ({
 <style scoped>
 h1 {
   font-family: 'Didot', serif;
+  margin: 30px;
 }
 .about {
   display: flex;
@@ -37,5 +77,20 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.review {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: justify;
+  width: 100%;
+}
+.review-even {
+  flex-direction: row-reverse;
+}
+.review-odd {
+  background: white;
+  color: black;
 }
 </style>

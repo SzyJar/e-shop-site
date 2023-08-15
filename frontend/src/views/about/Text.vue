@@ -53,4 +53,7 @@ div {
     border-radius: 20px;
     color: black;
 }
+h2 {
+    text-decoration: underline;
+}
 </style>
