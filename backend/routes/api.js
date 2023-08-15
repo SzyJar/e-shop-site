@@ -8,12 +8,12 @@ const Token = require('../models/jwt');
 const auth = require('../controllers/auth');
 const authAdmin = require('../controllers/authAdmin');
 
+
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     dbName: 'e-shop'
 }).catch(err => console.log(err));
-
 
 module.exports = function (app) {
 
@@ -66,8 +66,8 @@ module.exports = function (app) {
             });
             await newUser.save();
     
-            const accessToken = jwt.sign({ id: newUser._id }, process.env.SECURITY_KEY, { expiresIn : 86400 });
-            const refreshToken = jwt.sign({ id: newUser._id }, process.env.REFRESH_SECURITY_KEY, { expiresIn : 525600 });
+            const accessToken = jwt.sign({ _id: newUser._id }, process.env.SECURITY_KEY, { expiresIn : 86400 });
+            const refreshToken = jwt.sign({ _id: newUser._id }, process.env.REFRESH_SECURITY_KEY, { expiresIn : 525600 });
     
             return res.status(200).json({ accessToken, refreshToken });
         } catch(err) {
