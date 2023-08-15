@@ -18,7 +18,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #DBDBDB;
+  color: white;
 }
 
 body {
@@ -26,6 +26,7 @@ body {
   --secondary-color: #2d2d86;
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
   min-width: 700px;
+  margin: 0;
 }
 
 .nav-bar {

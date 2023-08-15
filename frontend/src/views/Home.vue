@@ -37,15 +37,14 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 .slideshow {
   display: inline-flex;
   overflow: hidden;
   background: white;
-  width: 90%;
+  width: 950px;
   height: 500px;
-  max-width: 950px;
   border-radius: 20px;
   
   .slide-info {
