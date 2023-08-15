@@ -67,3 +67,53 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin-top: -200px;
+}
+form {
+  width: 500px;
+  margin: 30px auto;
+  text-align: left;
+  padding: 40px;
+  border-radius: 10px;
+}
+label {
+  color: white;
+  display: inline-block;
+  margin: 25px 0 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+input, select {
+  display: block;
+  padding: 10px 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  background: white;
+  border: 0;
+  color: black;
+  text-transform: uppercase;
+  transition: transform 0.2s ease-out;
+}
+button:hover {
+  background: rgb(190, 190, 190);
+  cursor: pointer;
+}
+.error {
+  margin-top: 10px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+</style>

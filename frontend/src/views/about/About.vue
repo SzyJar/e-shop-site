@@ -24,8 +24,12 @@ export default ({
     const reviews = [
       {
         img: 'profile1',
-        text: 'Great shop!',
-        rating: 4
+        text: 'Fantastic shopping experience! What truly stood out to me was the exceptional'
+        +' customer service. From the moment I reached out with a question to the swift and'
+        +' friendly assistance throughout my purchase, the support team went above and beyond.'
+        +' It\'s a refreshing change to encounter such dedication to customers. This online'
+        +' shop has definitely earned my trust, and I\'m looking forward to shopping here again.',
+        rating: 10
       },
       {
         img: 'profile1',
