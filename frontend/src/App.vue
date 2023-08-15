@@ -25,6 +25,7 @@ body {
   --primary-color: #333399;
   --secondary-color: #2d2d86;
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
+  min-width: 700px;
 }
 
 .nav-bar {
@@ -52,6 +53,7 @@ nav a {
   color: white;
   text-decoration: none;
   text-transform: uppercase;
+  transition: transform 0.2s ease-out;
 }
 
 nav a:hover {
