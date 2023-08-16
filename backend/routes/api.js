@@ -66,7 +66,7 @@ module.exports = function (app) {
             });
             await newUser.save();
     
-            const accessToken = jwt.sign({ _id: newUser._id }, process.env.SECURITY_KEY, { expiresIn : 86400 });
+            const accessToken = jwt.sign({ id: newUser._id }, process.env.SECURITY_KEY, { expiresIn : 86400 });
             //const refreshToken = jwt.sign({ _id: newUser._id }, process.env.REFRESH_SECURITY_KEY, { expiresIn : 525600 });
     
             return res.status(200).json({ accessToken });
@@ -135,7 +135,7 @@ module.exports = function (app) {
         };
     })
     // Add product
-    .post(auth, authAdmin, async function(req, res) {
+    .post(auth, async function(req, res) {
         const productData = {
             name: req.params.name,
             image: req.body.image,

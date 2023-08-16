@@ -15,7 +15,7 @@
       </div>
     </form>
     <div class="submit">
-      <button>Create new Account</button>
+      <router-link to="/register"><button>Create new Account instead</button></router-link>
     </div>
   </div>
   <div v-else class="success">
