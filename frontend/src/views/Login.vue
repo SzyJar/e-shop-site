@@ -40,8 +40,8 @@ export default {
     const handleSubmit = async () => {
       try {
         const res = await axios.post(process.env.VUE_APP_API_URL + 'login', userData.value);
-        localStorage.setItem('jwt', res.accessToken);
-        router.push({ name: 'product' });
+        localStorage.setItem('jwt', JSON.parse(res.request.response).accessToken);
+        router.push({ name: 'products' });
       } catch (error) {
         if(!error.request) {
           console.log(error);

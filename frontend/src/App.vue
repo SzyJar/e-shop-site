@@ -3,8 +3,8 @@
     <div class="nav-links">
       <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
-      <router-link to="/product">Products</router-link>
-      <router-link to="/manage">Manage</router-link>
+      <router-link to="/products">Products</router-link>
+      <router-link v-if="jwt" to="/manage">Manage</router-link>
     </div>
     <div class="login-link">
       <router-link to="/login">Login</router-link>
@@ -12,12 +12,30 @@
   </nav>
   <router-view/>
 </template>
+<script>
+import { ref, onMounted } from 'vue'
+
+export default ({
+  setup() {
+
+    const jwt = ref(null)
+    onMounted(() => {
+      jwt.value = localStorage.getItem('jwt');
+    });
+    
+    return {
+      jwt
+    }
+  },
+})
+</script>
 
 <style>
 ::-webkit-scrollbar {
   width: 0px;
   height: 0px;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -39,6 +57,7 @@ body {
 h1 {
   font-family: 'Didot', serif;
   margin: 30px;
+  margin-top: 50px;
 }
 
 .nav-bar {
@@ -61,7 +80,7 @@ h1 {
 
 .login-link {
   margin-left: auto;
-  margin-right: 50px;
+  margin-right: 70px;
 }
 
 nav a {

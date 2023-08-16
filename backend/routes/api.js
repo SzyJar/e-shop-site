@@ -138,10 +138,10 @@ module.exports = function (app) {
     .post(auth, authAdmin, async function(req, res) {
         const productData = {
             name: req.params.name,
-            cover: req.body.cover,
+            image: req.body.image,
             description: req.body.description,
             releaseDate: req.body.releaseDate,
-            developer: req.body.developer,
+            company: req.body.company,
             price: req.body.price
         };
         try {

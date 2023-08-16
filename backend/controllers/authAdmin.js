@@ -6,7 +6,7 @@ async function authenticateAdmin(req, res, next) {
     try {
         const token = req.header('Authorization');
         const decodedToken = jwt.verify(token, process.env.SECURITY_KEY);
-        const user = await User.findById(decodedToken._id);
+        const user = await User.findById(decodedToken.id);
 
         if (!user) {
             return res.status(401).json({ message: 'Invalid credentials' });
