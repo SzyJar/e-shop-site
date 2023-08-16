@@ -7,6 +7,7 @@
       <router-link v-if="hasToken" to="/manage">Manage</router-link>
     </div>
     <div class="login-link">
+      <router-link to="/cart"><i class="fa-solid fa-cart-shopping"></i></router-link>
       <router-link @click="logout" v-if="hasToken" to="/logout">Logout</router-link>
       <router-link v-else to="/login">Login</router-link>
     </div>
@@ -14,12 +15,22 @@
   <router-view/>
 </template>
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import axios from 'axios'
 
 export default ({
   setup() {
-    const jwt = ref(localStorage.getItem('jwt'))
+    onMounted(async () => {
+      // wake up replit server
+      try {
+        const repsonse = await axios.get(process.env.VUE_APP_API_URL);
+        console.log('server response:', repsonse.status);
+      } catch (error) {
+        console.log(error);
+      };
+    });
+    
+    const jwt = ref(localStorage.getItem('jwt'));
 
     const logout = async () => {
       try {
@@ -47,6 +58,7 @@ export default ({
 </script>
 
 <style>
+@import '~@fortawesome/fontawesome-free/css/all.css';
 ::-webkit-scrollbar {
   width: 0px;
   height: 0px;
@@ -63,7 +75,7 @@ export default ({
 
 body {
   --primary-color: #333399;
-  --secondary-color: #2d2d86;
+  --secondary-color: #262673;
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
   min-width: 700px;
   margin: 0;
@@ -95,7 +107,9 @@ h1 {
 }
 
 .login-link {
+  display: flex;
   margin-left: auto;
+  gap: 40px;
   margin-right: 70px;
 }
 

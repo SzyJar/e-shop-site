@@ -69,6 +69,9 @@ setup() {
         nameError.value = '';
       } else if (error.request.status === 409) {
         nameError.value = 'Product already exist';
+      } else if (error.request.status === 401) {
+        localStorage.removeItem('jwt');
+        nameError.value = 'You are not authorized, please log in or register';
       }
     };
   };

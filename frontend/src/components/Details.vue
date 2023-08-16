@@ -8,19 +8,39 @@
         <p v-if="details.company"><b>Manufactured by:</b> {{ details.company }}</p>
         <p v-if="details.releaseDate"><b>Released on:</b> {{ new Date(details.releaseDate).toLocaleDateString() }}</p>
         <p v-if="details.price"><b>Price:</b> {{ details.price }} Caps</p>
+        <button @click="addItem">Add to cart</button>
       </div>
   </div>
 </template>
 
 <script>
+import { ref } from 'vue'
+
 export default {
     props: ['details'],
     setup(props, { emit }) {
         const close = () => {
             emit('close');
-        }
+        };
+
+        const cart = ref();
+        const addItem = () => {
+            const cartString = localStorage.getItem('cart');
+            try {
+                const cartArray = JSON.parse(cartString) || [];
+                cartArray.push(props.details);
+                localStorage.setItem('cart', JSON.stringify(cartArray));
+                cart.value = cartArray;
+                emit('close');
+            } catch (error) {
+                console.log(error);
+                localStorage.removeItem('cart');
+            };
+        };
+
         return {
-            close
+            close,
+            addItem
         }
     }
 }
@@ -39,7 +59,7 @@ export default {
 .product {
     width: 700px;
     max-width: 700px;
-    height: 80%;
+    height: 85%;
     border-radius: 20px;
     margin: 10px;
     padding: 5px;
@@ -75,8 +95,8 @@ p {
 }
 
 .img {
-    width: 500px;
-    height: 500px;
+    max-width: 500px;
+    max-height: 500px;
     display: flex;
     margin: 10px auto;
     justify-content: center;
@@ -84,5 +104,19 @@ p {
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 20px;
+  border: 2px solid #000000;
+  background: #ccc;
+  color: black;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background: #b3d9ff;
+  cursor: pointer;
 }
 </style>

@@ -22,7 +22,7 @@ export default {
 
         onMounted(() => {
             slideCount.value = document.querySelectorAll('.slide').length;
-            setInterval(nextSlide, 2000);
+            setInterval(nextSlide, 3000);
         });
 
         return { currentSlide }
