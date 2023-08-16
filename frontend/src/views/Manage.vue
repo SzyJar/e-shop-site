@@ -104,7 +104,7 @@ img {
 }
 form {
   width: 700px;
-  margin: 30px auto;
+  margin: 10px auto;
   text-align: left;
   padding: 40px;
   border-radius: 10px;

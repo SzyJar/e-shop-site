@@ -1,7 +1,9 @@
 <template>
   <div class="container">
+    <Details v-if="detailsOn" @close="detailsClose" :details="productDetails" />
+    <h1>Choose from the variety of our products!</h1>
     <div class="products" v-if="products.length !== 0">
-      <div class="product" v-for="(product, index) in products" :key="index">
+      <div @click="showDetails(product)" class="product" v-for="(product, index) in products" :key="index">
         <h2>{{ product.name }}</h2>
         <img class="img" v-if="product.image" :src="product.image"/>
         <div class="img" v-else><p>No image</p></div>
@@ -19,10 +21,11 @@
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import LoadingSpinner from '../components/Loading.vue';
+import Details from '../components/Details.vue';
 
 export default ({
   components: {
-    LoadingSpinner
+    LoadingSpinner, Details
   },
   setup() {
     const products = ref([]);
@@ -42,8 +45,38 @@ export default ({
       await retrieveData();
     });
 
+    const detailsOn = ref(false);
+    const productDetails = ref({
+      name: '',
+      image: '',
+      description: '',
+      releaseDate: '',
+      company:'',
+      price:'',
+    });
+
+    const showDetails = (product) => {
+      productDetails.value = {
+        name: product.name,
+        image: product.image,
+        description: product.description,
+        releaseDate: product.releaseDate,
+        company: product.company,
+        price: product.price,
+      };
+      detailsOn.value = true;
+    };
+
+    const detailsClose = () => {
+      detailsOn.value = false;
+    };
+
     return {
         products,
+        detailsOn,
+        productDetails,
+        showDetails,
+        detailsClose
     }
   }
 })
@@ -52,6 +85,7 @@ export default ({
 <style scoped>
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -59,7 +93,7 @@ export default ({
 
 .products {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   flex-wrap: wrap;
   margin: 0 auto;
 }
@@ -76,12 +110,19 @@ export default ({
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  transition: transform 0.1s ease-out;
 }
 
 .product:hover {
-  transform: scale(1.02);
   cursor: pointer;
+}
+
+h1 {
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: white;
+  color: black;
+  width: 100%;
 }
 
 h2 {
@@ -101,8 +142,8 @@ p {
 }
 
 .img {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
