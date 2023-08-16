@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div v-if="!jwt" class="login">
     <h1>Please log in to access your Account</h1>
     <form @submit.prevent="handleSubmit">
       <label>Name:</label>
@@ -18,10 +18,14 @@
       <button>Create new Account</button>
     </div>
   </div>
+  <div v-else class="success">
+    <h1>Successfully logged in!</h1>
+    <p>You are now ready to manage products!</p>
+  </div>
 </template>
 
 <script>
-import { ref, getCurrentInstance } from 'vue'
+import { ref } from 'vue'
 import axios from 'axios'
 
 export default {
@@ -30,10 +34,7 @@ export default {
       name: '',
       password: '',
     });
-
-    const instance = getCurrentInstance();
-    const router = instance.appContext.config.globalProperties.$router;
-
+    const jwt = ref(localStorage.getItem('jwt'));
     const passwordError = ref('');
     const userError = ref('');
 
@@ -41,7 +42,7 @@ export default {
       try {
         const res = await axios.post(process.env.VUE_APP_API_URL + 'login', userData.value);
         localStorage.setItem('jwt', JSON.parse(res.request.response).accessToken);
-        router.push({ name: 'products' });
+        location.reload();
       } catch (error) {
         if(!error.request) {
           console.log(error);
@@ -62,6 +63,7 @@ export default {
       userData,
       passwordError,
       userError,
+      jwt,
       handleSubmit
     }
   }
@@ -74,8 +76,8 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
-  margin-top: -200px;
+  height: 100%;
+  margin-top: 100px;
 }
 form {
   width: 500px;
@@ -116,4 +118,19 @@ button:hover {
   font-weight: bold;
 }
 
+.success {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+}
+h1, p {
+    margin: 0;
+    padding: 20px;
+    background: white;
+    color: black;
+    width: 100%;
+}
 </style>

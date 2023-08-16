@@ -84,9 +84,6 @@ setup() {
 </script>
 
 <style scoped>
-.manage {
-  position: relative;
-}
 .image {
   text-align: center;
   position: absolute;
@@ -101,7 +98,7 @@ img {
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  margin-top: 330px;
+  margin-top: 350px;
   margin-left: 80%;
   padding-right: 200px;
 }

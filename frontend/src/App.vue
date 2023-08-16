@@ -4,27 +4,43 @@
       <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/products">Products</router-link>
-      <router-link v-if="jwt" to="/manage">Manage</router-link>
+      <router-link v-if="hasToken" to="/manage">Manage</router-link>
     </div>
     <div class="login-link">
-      <router-link to="/login">Login</router-link>
+      <router-link @click="logout" v-if="hasToken" to="/logout">Logout</router-link>
+      <router-link v-else to="/login">Login</router-link>
     </div>
   </nav>
   <router-view/>
 </template>
 <script>
-import { ref, onMounted } from 'vue'
+import { ref, computed } from 'vue'
+import axios from 'axios'
 
 export default ({
   setup() {
+    const jwt = ref(localStorage.getItem('jwt'))
 
-    const jwt = ref(null)
-    onMounted(() => {
-      jwt.value = localStorage.getItem('jwt');
-    });
-    
+    const logout = async () => {
+      try {
+        const jwtToken = localStorage.getItem('jwt');
+        const headers = {
+            Authorization: jwtToken
+        };
+        const res = await axios.post(process.env.VUE_APP_API_URL + `logout`, {}, { headers });
+        localStorage.removeItem('jwt');
+        jwt.value = null;
+      } catch (error) {
+        console.log(error);
+      };
+    };
+
+    const hasToken = computed(() => jwt.value !== null);
+
     return {
-      jwt
+      jwt,
+      hasToken,
+      logout,
     }
   },
 })
