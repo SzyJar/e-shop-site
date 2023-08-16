@@ -32,6 +32,7 @@
             <p>Cart value: {{ sum.toLocaleString() }} Caps</p>
             <p>Cart value after tax: {{ (sum * 4).toLocaleString() }} Caps</p>
             <p v-if="sum > 500">Free shipping on all orders</p>
+            <button class="discount" @click="applyDiscount">Apply discount (new)</button>
         </div>
     </div>
     </div>
@@ -82,11 +83,16 @@ export default {
             calcSum();
         };
 
+        const applyDiscount = () => {
+            sum.value = sum.value - 0.01;
+        }
+
         return {
             cart,
             sum,
             deleteAll,
-            deleteOne
+            deleteOne,
+            applyDiscount
         }
     }
 }
@@ -119,7 +125,7 @@ h1, p {
 .summary {
     border: 2px solid white;
     width: 30%;
-    height: 240px;
+    height: 280px;
     p {
         width: 90%;
         color: white;
@@ -168,7 +174,9 @@ button {
   color: black;
   text-transform: uppercase;
 }
-
+.discount {
+  font-size: 70%;
+}
 button:hover {
   background: rgb(190, 190, 190);
   cursor: pointer;
