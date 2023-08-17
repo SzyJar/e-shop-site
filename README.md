@@ -2,7 +2,7 @@
 ## Visit https://szyjar.github.io/e-shop-site/ for live project.
 Backend is hosted on replit.com https://replit.com/@RedGlimmer/e-shop
 
-## How it works
+## Description
 User can browse store information and product assortment.
 Shopping cart is saved locally, user can freely add and remove items from shopping cart.
 User can login or create new account, after login it is possible to add new items to store database.
