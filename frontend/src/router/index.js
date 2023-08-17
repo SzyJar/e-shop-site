@@ -8,7 +8,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
+    path: `/about`,
     name: 'about',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -16,39 +16,45 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/about/About.vue')
   },
   {
-    path: '/products',
+    path: `/products`,
     name: 'products',
     component: () => import('../views/Products.vue')
   },
   {
-    path: '/manage',
+    path: `/manage`,
     name: 'manage',
     component: () => import('../views/Manage.vue')
   },
   {
-    path: '/cart',
+    path: `/cart`,
     name: 'cart',
     component: () => import('../views/Cart.vue')
   },
   {
-    path: '/login',
+    path: `/login`,
     name: 'login',
     component: () => import('../views/Login.vue')
   },
   {
-    path: '/register',
+    path: `/register`,
     name: 'register',
     component: () => import('../views/Register.vue')
   },
   {
-    path: '/logout',
+    path: `/logout`,
     name: 'logout',
     component: () => import('../views/Logout.vue')
+  },
+  {
+    path: '/:catchAll(.*)',
+    name: '404',
+    component: () => import('../views/404.vue')
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
+  mode: 'hash',
   routes
 })
 
