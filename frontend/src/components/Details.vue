@@ -9,7 +9,7 @@
         <p v-if="details.releaseDate"><b>Released on:</b> {{ new Date(details.releaseDate).toLocaleDateString() }}</p>
         <p v-if="details.price"><b>Price:</b> {{ details.price }} Caps</p>
         <button @click="addItem">Add to cart</button>
-      </div>
+    </div>
   </div>
 </template>
 
@@ -46,7 +46,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .backdrop {
     top: 0;
     position: fixed;
@@ -59,17 +59,31 @@ export default {
 .product {
     width: 700px;
     max-width: 700px;
-    height: 85%;
-    border-radius: 20px;
-    margin: 10px;
+    height: 90%;
+    margin: 10px auto;
     padding: 5px;
     background: white;
     color: black;
-    flex-wrap: wrap;
+    display: flex;
     flex-direction: column;
-    text-align: center;
-    flex: 1;
-    overflow: auto;
+    overflow-y: auto;
+    
+    &::-webkit-scrollbar {
+    width: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+    }
 }
 
 h1 {
@@ -95,8 +109,8 @@ p {
 }
 
 .img {
-    max-width: 500px;
-    max-height: 500px;
+    max-width: 400px;
+    max-height: 400px;
     display: flex;
     margin: 10px auto;
     justify-content: center;
@@ -107,16 +121,18 @@ p {
 }
 
 button {
-  padding: 10px 20px;
-  margin: 20px;
-  border: 2px solid #000000;
-  background: #ccc;
-  color: black;
-  text-transform: uppercase;
+    padding: 10px 20px;
+    margin: 20px auto;
+    margin-top: auto;
+    border: 2px solid #000000;
+    background: #ccc;
+    color: black;
+    text-transform: uppercase;
+    width: calc(100% - 10px);
 }
 
 button:hover {
-  background: #b3d9ff;
-  cursor: pointer;
+    background: #b3d9ff;
+    cursor: pointer;
 }
 </style>

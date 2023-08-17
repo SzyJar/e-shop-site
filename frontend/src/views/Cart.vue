@@ -29,10 +29,13 @@
         </table>
         <div class="summary">
             <button @click="deleteAll">DELETE ALL</button>
-            <p>Cart value: {{ sum.toLocaleString() }} Caps</p>
-            <p>Cart value after tax: {{ (sum * 4).toLocaleString() }} Caps</p>
+            <p></p>
+            <p>Cart value:</p>
+            <p :class="{ 'shaking-number': isShaking }">{{ sum.toLocaleString() }} Caps</p>
+            <p>Cart value after tax:</p>
+            <p :class="{ 'shaking-number': isShaking }">{{ (sum * 4).toLocaleString() }} Caps</p>
             <p v-if="sum > 500">Free shipping on all orders</p>
-            <button class="discount" @click="applyDiscount">Apply discount (new)</button>
+            <button class="discount" @click="applyDiscount">Apply discount code</button>
         </div>
     </div>
     </div>
@@ -49,7 +52,7 @@ export default {
     setup() {
         const cart = ref([]);
         const sum = ref(0);
-
+        const isShaking = ref(false)
         const calcSum = () => {
             sum.value = cart.value.reduce((total, product) => {
                 if (product.price !== null) {
@@ -84,12 +87,19 @@ export default {
         };
 
         const applyDiscount = () => {
-            sum.value = sum.value - 0.01;
-        }
+            if (sum.value > 0.01) {
+                sum.value = sum.value - 0.01;
+                isShaking.value = true;
+                setTimeout(() => {
+                    isShaking.value = false;
+                }, 100);
+            };
+        };
 
         return {
             cart,
             sum,
+            isShaking ,
             deleteAll,
             deleteOne,
             applyDiscount
@@ -125,7 +135,7 @@ h1, p {
 .summary {
     border: 2px solid white;
     width: 30%;
-    height: 280px;
+    height: 380px;
     p {
         width: 90%;
         color: white;
@@ -166,19 +176,43 @@ h1, p {
 }
 
 button {
-  padding: 10px 20px;
-  margin: 20px auto;
-  font-size: 150%;
-  background: white;
-  border: 0;
-  color: black;
-  text-transform: uppercase;
+    padding: 10px 20px;
+    margin: 20px auto;
+    font-size: 150%;
+    background: white;
+    border: 0;
+    color: black;
+    text-transform: uppercase;
+    transition: ease;
 }
+
 .discount {
-  font-size: 70%;
+     font-size: 70%;
 }
+
+.shaking-number {
+      animation: shake 0.1s 1;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translate(0);
+    }
+    25%, 75% {
+        transform: translate(-2px, -2px);
+    }
+    50% {
+        transform: translate(2px, 2px);
+    }
+}
+
 button:hover {
-  background: rgb(190, 190, 190);
-  cursor: pointer;
+    background: rgb(190, 190, 190);
+    cursor: pointer;
+}
+button:active {
+    background: rgb(150, 150, 150);
+    transform: scale(0.99);
+    cursor: pointer;
 }
 </style>

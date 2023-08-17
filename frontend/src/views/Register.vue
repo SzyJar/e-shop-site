@@ -18,6 +18,9 @@
         <button>Register</button>
       </div>
     </form>
+    <div class="submit">
+      <router-link to="/login"><button>Use existing Account instead</button></router-link>
+    </div>
   </div>
   <div v-else class="success">
     <h1>Successfully Registered!</h1>
