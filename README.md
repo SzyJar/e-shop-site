@@ -10,7 +10,7 @@ User authentication is performed using a JSON web token.
 
 ![image](https://github.com/SzyJar/e-shop-site/assets/107247457/28d1a4fc-1738-4c9a-9b68-9fea32d7e216)
 
-User can login or create new account, after login it is possible to add new items to store database.
+User can login or create new account, after login it is possible to add new items to the database.
 
 # API Endpoints
 
