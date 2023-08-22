@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunke_shop"]=self["webpackChunke_shop"]||[]).push([[68],{7068:function(e,n,u){u.r(n),u.d(n,{default:function(){return f}});var t=u(3396);const o=e=>((0,t.dD)("data-v-32eb123d"),e=e(),(0,t.Cn)(),e),s={class:"logout"},a=o((()=>(0,t._)("h1",null,"You have been logged out.",-1))),r=o((()=>(0,t._)("p",null,"Thanks for being with us!",-1))),d=[a,r];function c(e,n,u,o,a,r){return(0,t.wg)(),(0,t.iD)("div",s,d)}var l={},h=u(89);const i=(0,h.Z)(l,[["render",c],["__scopeId","data-v-32eb123d"]]);var f=i}}]);
+//# sourceMappingURL=68.30d5f1a3.js.map

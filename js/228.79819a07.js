@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunke_shop"]=self["webpackChunke_shop"]||[]).push([[228],{3228:function(e,n,u){u.r(n),u.d(n,{default:function(){return c}});var r=u(3396);function t(e,n,u,t,a,o){return(0,r.wg)(),(0,r.iD)("h1",null,"Page not found")}var a={},o=u(89);const s=(0,o.Z)(a,[["render",t],["__scopeId","data-v-685660e1"]]);var c=s}}]);
+//# sourceMappingURL=228.79819a07.js.map
