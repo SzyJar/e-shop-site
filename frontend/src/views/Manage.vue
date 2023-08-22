@@ -72,6 +72,7 @@ setup() {
       } else if (error.request.status === 401) {
         localStorage.removeItem('jwt');
         nameError.value = 'You are not authorized, please log in or register';
+        setTimeout(router.push({ name: 'login' }), 1000);
       }
     };
   };

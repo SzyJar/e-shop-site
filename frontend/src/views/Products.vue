@@ -49,7 +49,7 @@ export default ({
         });
       } catch (error) {
         console.log(error);
-         setTimeout(retrieveData, 4000);
+        setTimeout(retrieveData, 4000);
       };
     }
 

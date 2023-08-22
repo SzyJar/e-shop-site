@@ -38,9 +38,9 @@ export default ({
         const headers = {
             Authorization: jwtToken
         };
-        const res = await axios.post(process.env.VUE_APP_API_URL + `logout`, {}, { headers });
         localStorage.removeItem('jwt');
         jwt.value = null;
+        const res = await axios.post(process.env.VUE_APP_API_URL + `logout`, {}, { headers });
       } catch (error) {
         console.log(error);
       };
@@ -99,7 +99,7 @@ h1 {
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
   width: 100%;
   z-index: 999;
-  
+
   @media (max-width: 800px) {
     zoom: 0.7;
   }
