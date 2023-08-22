@@ -10,17 +10,22 @@
         </Slide>
       </Carousel>
     </div>
+    <h1></h1>
+    <div class="featured">
+      <Products header='Take a look at our featured products!' size="3" />
+    </div>
   </div>
 </template>
 
 <script>
 import Carousel from '../components/Carousel'
 import Slide from '../components/Slide'
+import Products from './Products.vue'
 
 
 export default {
   name: 'Home',
-  components: { Carousel, Slide },
+  components: { Carousel, Slide, Products },
   setup() {
     const slides = ['img1', 'img2', 'img3']
 

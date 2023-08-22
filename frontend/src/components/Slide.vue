@@ -13,6 +13,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 .slide-enter-active,
 .slide-leave-active {
     transition: opacity 0.9s ease-in-out;

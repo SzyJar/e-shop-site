@@ -1,14 +1,14 @@
 <template>
   <div class="container">
     <Details v-if="detailsOn" @close="detailsClose" :details="productDetails" />
-    <h1>Choose from the variety of our products!</h1>
+    <h1>{{ header || 'Choose from the variety of our products!'}}</h1>
     <div class="products" v-if="products.length !== 0">
       <div @click="showDetails(product)" class="product" v-for="(product, index) in products" :key="index">
         <h2>{{ product.name }}</h2>
         <img class="img" v-if="product.image" :src="product.image"/>
         <div class="img" v-else><p>No image</p></div>
         <p v-if="product.description">{{ product.description }}</p>
-        <p v-if="product.price">Price: {{ product.price }} Caps</p>
+        <p v-if="product.price">Price: {{ product.price.toFixed(2) }} Caps</p>
       </div>
     </div>
     <div v-else>
@@ -27,13 +27,25 @@ export default ({
   components: {
     LoadingSpinner, Details
   },
-  setup() {
+  props: ['size', 'header'],
+  setup(props) {
+    const listSize = ref(null)
+    if (props.size) {
+      listSize.value = parseInt(props.size);
+    }
+    
     const products = ref([]);
     const retrieveData = async () => {
      try {
         const response = await axios.get(process.env.VUE_APP_API_URL + 'product');
         response.data.forEach(product => {
-          products.value.push(product);
+          if (listSize.value) {
+            if (listSize.value > products.value.length) {
+              products.value.push(product);
+            }
+          } else {
+            products.value.push(product);
+          }
         });
       } catch (error) {
         console.log(error);
@@ -122,7 +134,7 @@ h1 {
   padding: 20px;
   background: white;
   color: black;
-  width: 100%;
+  width: 100vw;
 }
 
 h2 {

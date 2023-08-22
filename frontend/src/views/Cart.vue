@@ -21,7 +21,7 @@
                 </td>
                 <td v-if="product.description">{{ product.description }}</td>
                 <td v-else>-</td>
-                <td v-if="product.price">{{ product.price }} Caps</td>
+                <td v-if="product.price">{{ product.price.toFixed(2) }} Caps</td>
                 <td v-else>-</td>
                 <td><button @click="deleteOne(index)"> X </button></td>
             </tr>
@@ -31,9 +31,9 @@
             <button @click="deleteAll">DELETE ALL</button>
             <p></p>
             <p>Cart value:</p>
-            <p :class="{ 'shaking-number': isShaking }">{{ sum.toLocaleString() }} Caps</p>
+            <p :class="{ 'shaking-number': isShaking }">{{ sum.toFixed(2) }} Caps</p>
             <p>Cart value after tax:</p>
-            <p :class="{ 'shaking-number': isShaking }">{{ (sum * 4).toLocaleString() }} Caps</p>
+            <p :class="{ 'shaking-number': isShaking }">{{ (sum * 4).toFixed(2) }} Caps</p>
             <p v-if="sum > 500">Free shipping on all orders</p>
             <button class="discount" @click="applyDiscount">Apply discount code</button>
         </div>
