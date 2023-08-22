@@ -94,13 +94,16 @@ export default ({
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+  @media (max-width: 800px) {
+    zoom: 0.7;
+  }
 }
 
 .products {
@@ -134,7 +137,7 @@ h1 {
   padding: 20px;
   background: white;
   color: black;
-  width: 100vw;
+  width: 100%;
 }
 
 h2 {

@@ -57,7 +57,7 @@ export default ({
 })
 </script>
 
-<style>
+<style lang="scss">
 @import '~@fortawesome/fontawesome-free/css/all.css';
 ::-webkit-scrollbar {
   width: 0px;
@@ -77,7 +77,7 @@ body {
   --primary-color: #333399;
   --secondary-color: #262673;
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
-  min-width: 700px;
+  min-width: 500px;
   margin: 0;
   margin-top: 100px;
 }
@@ -98,6 +98,11 @@ h1 {
   padding: 20px;
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
   width: 100%;
+  z-index: 999;
+  
+  @media (max-width: 800px) {
+    zoom: 0.7;
+  }
 }
 
 .nav-links {

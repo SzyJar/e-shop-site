@@ -2,13 +2,11 @@
   <div class="home">
     <h1>This is demo project of online shop.</h1>
     <div class="slideshow">
-      <Carousel v-slot="{ currentSlide }">
-        <Slide v-for="(slide, index) in slides" :key="index">
-          <div v-show="currentSlide === index + 1" class="slide-info">
-            <img :src="require(`../assets/${slide}.png`)" alt="">
-          </div>
-        </Slide>
-      </Carousel>
+      <transition :name="transitionName" mode="out-in">
+        <div :key="currentSlide" class="slide-info">
+          <img :src="require(`../assets/${slides[currentSlide]}.png`)" alt="">
+        </div>
+      </transition>
     </div>
     <h1></h1>
     <div class="featured">
@@ -18,19 +16,29 @@
 </template>
 
 <script>
-import Carousel from '../components/Carousel'
-import Slide from '../components/Slide'
+import { ref, onMounted } from 'vue';
 import Products from './Products.vue'
 
 
 export default {
   name: 'Home',
-  components: { Carousel, Slide, Products },
+  components: { Products },
   setup() {
-    const slides = ['img1', 'img2', 'img3']
+    const slides = ['img1', 'img2', 'img3'];
+    const currentSlide = ref(0);
+    const transitionName = ref('slide');
 
+    const startSlideshow = () => {
+      setInterval(() => {
+        currentSlide.value = (currentSlide.value + 1) % slides.length;
+      }, 4000);
+    };
+
+    onMounted(startSlideshow);
     return {
-      slides
+      slides,
+      currentSlide,
+      transitionName
     }
   }
 }
@@ -43,12 +51,20 @@ export default {
   align-items: center;
   flex-direction: column;
   margin-top: 50px;
+
+  .featured {
+    width: 100%;
+  }
 }
 .slideshow {
   overflow: hidden;
   background: white;
   width: 100%;
   height: 500px;
+
+  @media (max-width: 900px) {
+    zoom: 0.5;
+  }
   
   .slide-info {
   top: 0;
@@ -65,4 +81,20 @@ export default {
   }
 }
 
+.slide-enter-active,
+.slide-leave-active {
+    transition: opacity 1s ease-in-out, transform 1s;  
+}
+
+.slide-enter-to,
+.slide-leave-from {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-enter-from,
+.slide-leave-to {
+    opacity: 0;
+    transform: translateX(-10%);
+}
 </style>

@@ -55,6 +55,7 @@ export default {
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
+    z-index: 10001;
 }
 .product {
     width: 700px;
@@ -67,6 +68,7 @@ export default {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    z-index: 10003;
     
     &::-webkit-scrollbar {
     width: 12px;

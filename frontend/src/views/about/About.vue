@@ -60,7 +60,7 @@ export default ({
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .about {
   display: flex;
   flex-direction: column;
@@ -85,6 +85,10 @@ export default ({
   align-items: center;
   text-align: justify;
   width: 100%;
+
+  @media (max-width: 800px) {
+    zoom: 0.7;
+  }
 }
 .review-even {
   flex-direction: row-reverse;

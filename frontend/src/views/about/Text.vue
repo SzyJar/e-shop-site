@@ -1,8 +1,8 @@
 <template>
 <div>
-<h2>
+<h1>
     Welcome to Our Online shop!
-</h2>
+</h1>
 <p>
 At our online shop, we take immense pride in our remarkable journey
 spanning over a hundred years of history. With roots that run deeper
@@ -52,8 +52,5 @@ div {
     max-width: 950px;
     border-radius: 20px;
     color: black;
-}
-h2 {
-    text-decoration: underline;
 }
 </style>
