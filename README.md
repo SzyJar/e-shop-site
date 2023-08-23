@@ -3,14 +3,13 @@
 Backend is hosted on replit.com https://replit.com/@RedGlimmer/e-shop
 
 #
-User can browse store information and product assortment.
+Users can access store information and explore product assortment.
 Shopping cart is saved locally, user can freely add and remove items from shopping cart.
-User can login or create new account, after login it is possible to add new items to store database.
-User authentication is performed using a JSON web token.
+Users can log in or create accounts, after login it is possible to add new items to store database.
+User authentication is done via JSON web tokens.
 
 ![image](https://github.com/SzyJar/e-shop-site/assets/107247457/28d1a4fc-1738-4c9a-9b68-9fea32d7e216)
 
-User can login or create new account, after login it is possible to add new items to the database.
 
 # API Endpoints
 
