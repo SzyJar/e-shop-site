@@ -7,14 +7,14 @@
         <p v-if="details.description">{{ details.description }}</p>
         <p v-if="details.company"><b>Manufactured by:</b> {{ details.company }}</p>
         <p v-if="details.releaseDate"><b>Released on:</b> {{ new Date(details.releaseDate).toLocaleDateString() }}</p>
-        <p v-if="details.price"><b>Price:</b> {{ details.price }} Caps</p>
-        <button @click="addItem">Add to cart</button>
+        <p v-if="details.price"><b>Price:</b> {{ details.price.toFixed(2) }} Caps</p>
+        <button @click="addItem" :class="inCart ? 'cursor-block' : ''"> {{ inCart ? 'Already in cart' : 'Add to cart' }}</button>
     </div>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 export default {
     props: ['details'],
@@ -23,14 +23,26 @@ export default {
             emit('close');
         };
 
+        const inCart = ref(false);
+
+        onMounted(() =>{
+          const cartString = localStorage.getItem('cart');
+          const cartArray = JSON.parse(cartString) || [];
+          if (cartArray[0] && cartArray.some(item => item.name === props.details.name)) {
+            inCart.value = true;
+          }
+        })
+
         const cart = ref();
         const addItem = () => {
             const cartString = localStorage.getItem('cart');
             try {
                 const cartArray = JSON.parse(cartString) || [];
-                cartArray.push(props.details);
-                localStorage.setItem('cart', JSON.stringify(cartArray));
-                cart.value = cartArray;
+                if (!cartArray[0] || !cartArray.some(item => item.name === props.details.name)) {
+                  cartArray.push(props.details);
+                  localStorage.setItem('cart', JSON.stringify(cartArray));
+                  cart.value = cartArray;
+                }
                 emit('close');
             } catch (error) {
                 console.log(error);
@@ -39,6 +51,7 @@ export default {
         };
 
         return {
+            inCart,
             close,
             addItem
         }
@@ -49,6 +62,7 @@ export default {
 <style lang="scss" scoped>
 .backdrop {
     top: 0;
+    left: 0;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -56,12 +70,14 @@ export default {
     display: flex;
     justify-content: center;
     z-index: 10001;
+    @media (max-width: 800px), (max-height: 800px) {
+    zoom: 0.7;
+  }
 }
 .product {
     width: 700px;
     max-width: 700px;
-    height: 90%;
-    margin: 10px auto;
+    margin: 10% auto;
     padding: 5px;
     background: white;
     color: black;
@@ -136,5 +152,10 @@ button {
 button:hover {
     background: #b3d9ff;
     cursor: pointer;
+}
+
+.cursor-block:hover {
+    cursor: not-allowed;
+    background: #ccc;
 }
 </style>

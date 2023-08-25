@@ -120,14 +120,14 @@ h1 {
 
 nav a {
   font-weight: bold;
-  color: white;
+  color: #f2f2f2;
   text-decoration: none;
   text-transform: uppercase;
   transition: transform 0.2s ease-out;
 }
 
 nav a:hover {
-  color: #C7C7FF;
+  color: white;
 }
 
 nav a.router-link-exact-active {

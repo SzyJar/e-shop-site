@@ -19,7 +19,7 @@
                 <img class="img" v-if="product.image" :src="product.image" />
                 <div class="img" v-else>No image</div>
                 </td>
-                <td v-if="product.description">{{ product.description }}</td>
+                <td v-if="product.description"><div class="text">{{ product.description }}</div></td>
                 <td v-else>-</td>
                 <td v-if="product.price">{{ product.price.toFixed(2) }} Caps</td>
                 <td v-else>-</td>
@@ -27,15 +27,18 @@
             </tr>
             </tbody>
         </table>
-        <div class="summary">
-            <button @click="deleteAll">DELETE ALL</button>
+        <div class="summary"> 
             <p></p>
             <p>Cart value:</p>
             <p :class="{ 'shaking-number': isShaking }">{{ sum.toFixed(2) }} Caps</p>
             <p>Cart value after tax:</p>
             <p :class="{ 'shaking-number': isShaking }">{{ (sum * 4).toFixed(2) }} Caps</p>
             <p v-if="sum > 500">Free shipping on all orders</p>
-            <button class="discount" @click="applyDiscount">Apply discount code</button>
+            <div class="buttons">
+              <button class="discount" @click="applyDiscount">Apply discount code</button>
+              <button >Go to check Out</button>
+              <button @click="deleteAll">Empty your cart</button>
+            </div>
         </div>
     </div>
     </div>
@@ -124,6 +127,9 @@ h1, p {
     gap: 40px;
     width: 100%;
     margin: 0;
+    @media (max-width: 1100px) {
+      zoom: 0.7;
+    }
 }
 
 .cart {
@@ -134,8 +140,9 @@ h1, p {
 
 .summary {
     border: 2px solid white;
+    background: #404040;
     width: 30%;
-    height: 380px;
+    height: min-content;
     p {
         width: 90%;
         color: white;
@@ -153,21 +160,24 @@ h1, p {
     width: 65%;
     border-collapse: collapse;
     border: 1px solid #ccc;
+    background: #404040;
 }
-
+.text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 75px;
+}
 .products th,
 .products td {
     padding: 10px;
     border: 1px solid white;
     color: white;
-    height: 100px;
 }
 
 .products th {
     background-color: white;
     font-weight: bold;
     color: black;
-    height: 40px;
 }
 
 .products img {
@@ -175,10 +185,16 @@ h1, p {
     max-height: 100px;
 }
 
+.buttons {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
 button {
     padding: 10px 20px;
     margin: 20px auto;
-    font-size: 150%;
+    font-size: 70%;
     background: white;
     border: 0;
     color: black;
@@ -186,12 +202,8 @@ button {
     transition: ease;
 }
 
-.discount {
-     font-size: 70%;
-}
-
 .shaking-number {
-      animation: shake 0.1s 1;
+    animation: shake 0.1s 1;
 }
 
 @keyframes shake {

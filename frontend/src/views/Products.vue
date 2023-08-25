@@ -135,8 +135,8 @@ h1 {
   margin: 0;
   margin-bottom: 20px;
   padding: 20px;
-  background: white;
-  color: black;
+  background: transparent;
+  color: white;
   width: 100%;
 }
 

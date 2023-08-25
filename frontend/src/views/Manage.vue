@@ -120,12 +120,15 @@ label {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-input, textarea, select {
+input, textarea {
   display: block;
   padding: 10px 6px;
   width: 100%;
   resize: none;
   box-sizing: border-box;
+}
+textarea {
+  resize: vertical;
 }
 button {
   padding: 10px 20px;
