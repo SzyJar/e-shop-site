@@ -36,7 +36,7 @@
             <p v-if="sum > 500">Free shipping on all orders</p>
             <div class="buttons">
               <button class="discount" @click="applyDiscount">Apply discount code</button>
-              <button >Go to check Out</button>
+              <button >Go to checkout</button>
               <button @click="deleteAll">Empty your cart</button>
             </div>
         </div>
