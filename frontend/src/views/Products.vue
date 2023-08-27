@@ -129,6 +129,7 @@ export default ({
 
 .product:hover {
   cursor: pointer;
+  box-shadow: 5px 5px 18px rgba(255, 255, 255, 0.7);
 }
 
 h1 {
@@ -151,19 +152,21 @@ h2 {
 
 p {
   margin: 2px;
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .img {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
 }
 </style>

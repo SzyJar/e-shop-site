@@ -124,9 +124,7 @@ h1, p {
 .container {
     display: flex;
     align-content: space-between;
-    gap: 40px;
     width: 100%;
-    margin: 0;
     @media (max-width: 1100px) {
       zoom: 0.7;
     }
@@ -141,8 +139,8 @@ h1, p {
 .summary {
     border: 2px solid white;
     background: #404040;
-    width: 30%;
     height: min-content;
+    margin: 20px auto;
     p {
         width: 90%;
         color: white;
@@ -162,11 +160,13 @@ h1, p {
     border: 1px solid #ccc;
     background: #404040;
 }
+
 .text {
     overflow: hidden;
     text-overflow: ellipsis;
     max-height: 75px;
 }
+
 .products th,
 .products td {
     padding: 10px;
@@ -188,12 +188,13 @@ h1, p {
 .buttons {
     padding: 20px;
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 button {
     padding: 10px 20px;
-    margin: 20px auto;
+    margin: 10px;
     font-size: 70%;
     background: white;
     border: 0;

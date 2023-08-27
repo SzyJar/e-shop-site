@@ -70,21 +70,20 @@ export default ({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: white;
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
 body {
   --primary-color: #333399;
   --secondary-color: #262673;
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
-  min-width: 500px;
   margin: 0;
+  width: 100vw;
   margin-top: 100px;
 }
 
 h1 {
   font-family: 'Didot', serif;
-  margin: 30px;
   margin-top: 50px;
 }
 
@@ -96,6 +95,7 @@ h1 {
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  margin: 0;
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
   width: 100%;
   z-index: 999;
