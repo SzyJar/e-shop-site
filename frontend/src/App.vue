@@ -134,4 +134,13 @@ nav a.router-link-exact-active {
   color: white;
   transform: scale(1.2);
 }
+
+.v-lazy-image {
+  filter: blur(10px);
+  transition: filter 0.5s;
+}
+
+.v-lazy-image-loaded {
+  filter: blur(0);
+}
 </style>

@@ -2,8 +2,10 @@
   <div class="backdrop" @click="close">
     <div class="product" @click.stop>
         <h2>{{ details.name }}</h2>
-        <img class="img" v-if="details.image" :src="details.image"/>
-        <div class="img" v-else><p>No image</p></div>
+        <div class="img-container">
+          <v-lazy-image class="img" v-if="details.image" :src="details.image" />
+          <div class="img" v-else><p>No image</p></div>
+        </div>
         <p v-if="details.description">{{ details.description }}</p>
         <p v-if="details.company"><b>Manufactured by:</b> {{ details.company }}</p>
         <p v-if="details.releaseDate"><b>Released on:</b> {{ new Date(details.releaseDate).toLocaleDateString() }}</p>
@@ -15,8 +17,10 @@
 
 <script>
 import { onMounted, ref } from 'vue'
+import VLazyImage from "v-lazy-image";
 
 export default {
+    components: { VLazyImage },
     props: ['details'],
     setup(props, { emit }) {
         const close = () => {
@@ -124,6 +128,14 @@ p {
     width: 90%;
     text-align: left;
     white-space: pre-wrap;
+}
+
+.img-container {
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .img {

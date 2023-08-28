@@ -5,7 +5,7 @@
     <div class="products" v-if="products.length !== 0">
       <div @click="showDetails(product)" class="product" v-for="(product, index) in products" :key="index">
         <h2>{{ product.name }}</h2>
-        <img class="img" v-if="product.image" :src="product.image"/>
+        <v-lazy-image class="img" v-if="product.image" :src="product.image"/>
         <div class="img" v-else><p>No image</p></div>
         <p v-if="product.description">{{ product.description }}</p>
         <p v-if="product.price">Price: {{ product.price.toFixed(2) }} Caps</p>
@@ -19,13 +19,15 @@
 
 <script>
 import { ref, onMounted } from 'vue'
+import VLazyImage from "v-lazy-image";
 import axios from 'axios'
 import LoadingSpinner from '../components/Loading.vue';
 import Details from '../components/Details.vue';
 
+
 export default ({
   components: {
-    LoadingSpinner, Details
+    LoadingSpinner, Details, VLazyImage
   },
   props: ['size', 'header'],
   setup(props) {
