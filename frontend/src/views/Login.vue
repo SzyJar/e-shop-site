@@ -31,8 +31,8 @@ import axios from 'axios'
 export default {
   setup() {
     const userData = ref({
-      name: '',
-      password: '',
+      name: 'Guest',
+      password: 'Guest',
     });
     const jwt = ref(localStorage.getItem('jwt'));
     const passwordError = ref('');
