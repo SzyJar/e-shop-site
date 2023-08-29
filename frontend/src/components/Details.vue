@@ -1,5 +1,5 @@
 <template>
-  <div class="backdrop" @click="close">
+  <div :class="{'backdrop': !preview}" @click="close">
     <div class="product" @click.stop>
         <h2>{{ details.name }}</h2>
         <div class="img-container">
@@ -10,7 +10,7 @@
         <p v-if="details.company"><b>Manufactured by:</b> {{ details.company }}</p>
         <p v-if="details.releaseDate"><b>Released on:</b> {{ new Date(details.releaseDate).toLocaleDateString() }}</p>
         <p v-if="details.price"><b>Price:</b> {{ details.price.toFixed(2) }} Caps</p>
-        <button @click="addItem" :class="inCart ? 'cursor-block' : ''"> {{ inCart ? 'Already in cart' : 'Add to cart' }}</button>
+        <button v-if="!preview" @click="addItem" :class="inCart ? 'cursor-block' : ''"> {{ inCart ? 'Already in cart' : 'Add to cart' }}</button>
     </div>
   </div>
 </template>
@@ -21,7 +21,7 @@ import VLazyImage from "v-lazy-image";
 
 export default {
     components: { VLazyImage },
-    props: ['details'],
+    props: ['details', 'preview'],
     setup(props, { emit }) {
         const close = () => {
             emit('close');
