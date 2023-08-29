@@ -1,0 +1,116 @@
+h1, p {
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: white;
+  color: black;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  align-content: space-between;
+  width: 100%;
+  @media (max-width: 1100px) {
+    zoom: 0.7;
+  }
+}
+
+.cart {
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 100px;   
+}
+
+.summary {
+  border: 2px solid white;
+  background: #404040;
+  height: min-content;
+  margin: 20px auto;
+  p {
+      width: 90%;
+      color: white;
+      background: transparent;
+      text-align: left;
+      margin: 0;
+      padding: 0;
+      padding-left: 15px;
+      margin-top: 15px;
+  }
+}
+
+.products {
+  margin-left: 10px;
+  width: 65%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  background: #404040;
+}
+
+.text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 75px;
+}
+
+.products th,
+.products td {
+  padding: 10px;
+  border: 1px solid white;
+  color: white;
+}
+
+.products th {
+  background-color: white;
+  font-weight: bold;
+  color: black;
+}
+
+.products img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.buttons {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 70%;
+  background: white;
+  border: 0;
+  color: black;
+  text-transform: uppercase;
+  transition: ease;
+}
+
+.shaking-number {
+  animation: shake 0.1s 1;
+}
+
+@keyframes shake {
+  0%, 100% {
+      transform: translate(0);
+  }
+  25%, 75% {
+      transform: translate(-2px, -2px);
+  }
+  50% {
+      transform: translate(2px, 2px);
+  }
+}
+
+button:hover {
+  background: rgb(190, 190, 190);
+  cursor: pointer;
+}
+button:active {
+  background: rgb(150, 150, 150);
+  transform: scale(0.99);
+  cursor: pointer;
+}
