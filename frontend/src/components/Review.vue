@@ -1,5 +1,4 @@
 <template>
-  <div class="space"></div>
     <div>
         <img :src="img"/>
     </div>
@@ -8,7 +7,6 @@
         <br><br>
         rating: {{ rating }}/10 <i class="fas fa-star"></i></p>
     </div>
-  <div class="space"></div>
 </template>
 
 <script>
@@ -28,7 +26,6 @@ img {
 div {
     padding: 10px;
     margin: 20px;
-    width: 700px;
     text-align: center;
 }
 .space {

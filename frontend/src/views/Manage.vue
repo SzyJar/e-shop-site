@@ -1,9 +1,5 @@
 <template>
   <div class="manage">
-    <div class="preview">
-      <h1>Preview your product</h1>     
-      <Details :details="product" :preview="true" />
-    </div>
     <div class="form">
       <form @submit.prevent="handleSubmit">
       <h1>Add a new product to the database</h1>
@@ -32,7 +28,10 @@
       </div>
       </form>
     </div>
-
+    <div class="preview">
+      <h1>Preview your product</h1>     
+      <Details :details="product" :preview="true" />
+    </div>
     <div class="image">
       <img :src="require('@/assets/delivery.png')" alt="Delivery Image">
     </div>

@@ -12,12 +12,12 @@ h1 {
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 800px) {
-    zoom: 0.7;
+  @media (max-width: 1300px) {
+    flex-direction: column;
   }
 }
 .preview {
-  height: 830px;
+  height: 766px;
   overflow-y: scroll;
 }
 .image {
@@ -36,7 +36,7 @@ img {
 }
 form {
   width: 500px;
-  height: 830px;
+  height: 766px;
   margin: 20px;
   text-align: left;
   border-radius: 10px;

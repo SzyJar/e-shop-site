@@ -61,40 +61,5 @@ export default ({
 </script>
 
 <style lang="scss" scoped>
-.about {
-  display: flex;
-  flex-direction: column;
-  margin-top: 50px;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: justify;
-}
-.text {
-  padding: 0;
-  width: 100%;
-  background: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.review {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  text-align: justify;
-  width: 100%;
-
-  @media (max-width: 800px) {
-    zoom: 0.7;
-  }
-}
-.review-even {
-  flex-direction: row-reverse;
-}
-.review-odd {
-  background: white;
-  color: black;
-}
+@import '../../assets/styles/about.scss'
 </style>
