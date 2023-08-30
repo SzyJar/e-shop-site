@@ -16,10 +16,20 @@ h1 {
     flex-direction: column;
   }
 }
-.preview {
-  height: 766px;
-  overflow-y: scroll;
+
+.preview-container {
+  height: 830px;
+  h1 {
+    margin-bottom: 20px;
+  }
+  .preview {
+    background: white;
+    border-radius: 20px;
+    height: 766px;
+    overflow-y: scroll;
+  }
 }
+
 .image {
   text-align: center;
   position: fixed;
@@ -33,6 +43,9 @@ img {
   height: 600px;
   border-radius: 50%;
   padding-right: 250px;
+}
+.form {
+  height: 830px;
 }
 form {
   width: 500px;

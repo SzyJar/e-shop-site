@@ -28,9 +28,11 @@
       </div>
       </form>
     </div>
-    <div class="preview">
-      <h1>Preview your product</h1>     
-      <Details :details="product" :preview="true" />
+    <div class="preview-container">
+      <h1>Preview your product</h1>
+      <div class="preview">
+        <Details :details="product" :preview="true" />
+      </div>
     </div>
     <div class="image">
       <img :src="require('@/assets/delivery.png')" alt="Delivery Image">
