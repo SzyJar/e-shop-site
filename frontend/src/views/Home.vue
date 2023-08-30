@@ -4,7 +4,7 @@
     <div class="slideshow">
       <transition :name="transitionName" mode="out-in">
         <div :key="currentSlide" class="slide-info">
-          <img :src="require(`../assets/${slides[currentSlide]}.png`)" alt="">
+          <v-lazy-image :src="require(`../assets/${slides[currentSlide]}.png`)" alt="" />
         </div>
       </transition>
     </div>
@@ -18,11 +18,11 @@
 <script>
 import { ref, onMounted } from 'vue';
 import Products from './Products.vue'
-
+import VLazyImage from "v-lazy-image";
 
 export default {
   name: 'Home',
-  components: { Products },
+  components: { Products, VLazyImage },
   setup() {
     const slides = ['img1', 'img2', 'img3'];
     const currentSlide = ref(0);
