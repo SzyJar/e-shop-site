@@ -12,7 +12,7 @@ Explore the assortent of the internet shop, add products to your chop cart and a
 ![image](https://github.com/SzyJar/e-shop-site/assets/107247457/28d1a4fc-1738-4c9a-9b68-9fea32d7e216)
 *Home page*
 
-# API Endpoints
+# API's Endpoints
 
 ## Login
 - Method: `POST`
