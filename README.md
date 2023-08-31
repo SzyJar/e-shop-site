@@ -1,6 +1,6 @@
 [![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=white)](#) [![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)](#) [![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=white)](#) [![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)](#)
 # Shop site
-Explore the assortent of the internet shop, add products to your chop cart and apply discount. Log in and add new items to assortent.
+Explore assortment of the internet shop, add products to your shop cart and apply discount. Log in and add new items to store database.
 
 
 # Functionality
