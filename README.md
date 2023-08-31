@@ -1,15 +1,16 @@
 [![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=white)](#) [![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)](#) [![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=white)](#) [![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)](#)
 # Shop site
-## Visit https://szyjar.github.io/e-shop-site/ for live project.
-Backend is hosted on replit.com https://replit.com/@RedGlimmer/e-shop
+Explore the assortent of the internet shop, add products to your chop cart and apply discount. Log in and add new items to assortent.
+
 
 # Functionality
 * User can access store information and explore product assortment
-* Shopping cart is saved locally, user can freely add and remove items from shopping cart
-* User can log in or create accounts after login it is possible to add new items to store database
-* User authentication is done via JSON web tokens
+* Shopping cart is saved in browser cache, user can freely add and remove items from shopping cart
+* User can log in or create account, after login it is possible to add new items to store database
+* User authentication is done via JSON web token
 
 ![image](https://github.com/SzyJar/e-shop-site/assets/107247457/28d1a4fc-1738-4c9a-9b68-9fea32d7e216)
+*Home page*
 
 # API Endpoints
 
